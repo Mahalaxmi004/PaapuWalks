@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RegionDto>
+
+<h1>Region</h1>
+<div class="d-flex justify-content-end ">
+    <a class="btn btn-secondary" asp-controller="Region" asp-action="Add">Add Region</a>
+</div>
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>code</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var k in Model)
+        {
+            <tr>
+                <td>@k.Id</td>
+                <td>@k.Code</td>
+                <td>@k.Name</td>
+                <td>
+                    <a class="btn btn-secondary" asp-controller="Region" asp-action="Edit" asp-route-id="@k.Id">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Region" asp-action="Delete" asp-route-id="@k.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
